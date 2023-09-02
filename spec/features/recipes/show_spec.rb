@@ -18,6 +18,17 @@ RSpec.describe "Recipes Show Page" do
         expect(page).to have_content("#{milk.name}")
         expect(page).to have_content("#{flour.name}")
       end
+
+      it "displays the total cost of all of the ingredients in the recipe" do
+        pancakes = Recipe.create!(name: "Pancakes", complexity: 1, genre: "Breakfast")
+        eggs = pancakes.ingredients.create!(name: "Eggs", cost: 3)
+        milk = pancakes.ingredients.create!(name: "Milk", cost: 2)
+        flour = pancakes.ingredients.create!(name: "Flour", cost: 5)
+
+        visit "/recipes/#{pancakes.id}"
+
+        expect(page).to have_content("Total Recipe Cost: 10")
+      end
     end
   end
 end
