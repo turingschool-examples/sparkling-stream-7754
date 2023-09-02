@@ -41,7 +41,7 @@ RSpec.describe "Recipes Show Page" do
 
         expect(page).to have_content("Add ingredient to this recipe:")
 
-        fill_in "Ingredient id", with: sugar.id
+        fill_in "ingredient_id", with: sugar.id
 
         click_on "Submit"
 
