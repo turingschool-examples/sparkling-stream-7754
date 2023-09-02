@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "/ingredients", to: "ingredients#index"
   get "/recipes/:recipe_id", to: "recipes#show"
+  patch "/recipes/:recipe_id", to: "recipes#update"
 end

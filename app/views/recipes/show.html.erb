@@ -3,3 +3,9 @@
   <p><%= ingredient.name %></p>
 <% end %>
 <p>Total Cost: <%= @recipe.total_cost %></p>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, data: {turbo: false}, local: true do |form| %>
+  <%= form.label :id %>
+  <%= form.text_field :id %>
+  <%= form.submit "Add Ingredient" %>
+<% end %>
