@@ -23,10 +23,10 @@ RSpec.describe "Ingredients Index Page" do
 
         visit "/ingredients"
 
-        expect(eggs).to appear_before(flour)
-        expect(flour).to appear_before(ground_beef)
-        expect(ground_beef).to appear_before(milk)
-        expect(milk).to appear_before(salt)
+        expect(eggs.name).to appear_before(flour.name)
+        expect(flour.name).to appear_before(ground_beef.name)
+        expect(ground_beef.name).to appear_before(milk.name)
+        expect(milk.name).to appear_before(salt.name)
       end
     end
   end
