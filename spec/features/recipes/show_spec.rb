@@ -11,5 +11,13 @@ RSpec.describe Recipe, type: :feature do
 
     recipe.ingredients << ingredient_1
     recipe.ingredients << ingredient_2
+
+    visit "/recipes/#{recipe.id}"
+
+    expect(page).to have_content(recipe.name)
+    expect(page).to have_content(recipe.complexity)
+    expect(page).to have_content(recipe.genre)
+    expect(page).to have_content(ingredient_1.name)
+    expect(page).to have_content(ingredient_2.name)
   end
 end
