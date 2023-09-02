@@ -10,6 +10,7 @@ RSpec.describe Ingredient, type: :feature do
 
     visit "/ingredients"
 
+    save_and_open_page
     expect(page).to have_content("Ground Beef: 2")
     expect(page).to have_content("Salt: 4")
   end
