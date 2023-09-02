@@ -29,6 +29,26 @@ RSpec.describe "Recipes Show Page" do
 
         expect(page).to have_content("Total Recipe Cost: 10")
       end
+
+      it "displays a form that lets me add a new ingredient to the recipe" do
+        pancakes = Recipe.create!(name: "Pancakes", complexity: 1, genre: "Breakfast")
+        eggs = pancakes.ingredients.create!(name: "Eggs", cost: 3)
+        milk = pancakes.ingredients.create!(name: "Milk", cost: 2)
+        flour = pancakes.ingredients.create!(name: "Flour", cost: 5)
+        sugar = Ingredient.create!(name: "Sugar", cost: 4)
+
+        visit "/recipes/#{pancakes.id}"
+
+        expect(page).to have_content("Add ingredient to this recipe:")
+
+        fill_in "Ingredient id", with: sugar.id
+
+        click_on "Submit"
+
+        expect(current_path).to eq("/recipes/#{pancakes.id}")
+
+        expect(page).to have_content("#{sugar.name}")
+      end
     end
   end
 end
