@@ -12,4 +12,17 @@ RSpec.describe Recipe, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:ingredients).through(:recipe_ingredients)}
   end
+
+  describe "class methods" do
+    it "can calculate the total cost of a recipes ingredients" do
+      pancakes = Recipe.create!(name: "Pancakes", complexity: 1, genre: "Breakfast")
+      eggs = pancakes.ingredients.create!(name: "Eggs", cost: 3)
+      milk = pancakes.ingredients.create!(name: "Milk", cost: 2)
+      flour = pancakes.ingredients.create!(name: "Flour", cost: 5)
+      
+      query = pancakes.total_cost
+
+      expect(query).to eq(10)
+    end
+  end
 end
