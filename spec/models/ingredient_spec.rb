@@ -19,9 +19,8 @@ RSpec.describe Ingredient, type: :model do
          eggs = Ingredient.create!(name: "Eggs", cost: 3)
          milk = Ingredient.create!(name: "Milk", cost: 2)
          flour = Ingredient.create!(name: "Flour", cost: 5)
-         ingredients = Ingredient.all
 
-         query = ingredients.sort_alpha
+         query = Ingredient.sort_alpha
 
          expect(query).to eq([eggs, flour, ground_beef, milk, salt])
       end
