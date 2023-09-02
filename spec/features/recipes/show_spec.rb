@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Recipe, type: :feature do
   before(:each) do 
-    @recipe = Recipe.create(name: "Classic Beef", complexity: "Easy", genre: "Quick and easy foods")
+    @recipe = Recipe.create(name: "Classic Beef", complexity: 2, genre: "Quick and easy foods")
     @ingredient_1 = @recipe.ingredients.create(name: "Salt", cost: 4)
     @ingredient_2 = @recipe.ingredients.create(name: "Ground beef", cost: 2)
   end
