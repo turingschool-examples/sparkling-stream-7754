@@ -7,3 +7,8 @@
   <% end %>
 </ul>
 <h4>Total Recipe Cost: <%= @total_cost %></h4>
+<%= form_with url: "/recipes/update", method: :get, data: { turbo: false } do |form| %>
+  <%= form.label "Add_ingredient_to_this_recipe:" %>
+  <%= form.number_field :ingredient_id, step: 1, min: 1 %>
+  <%= form.submit "Submit" %>
+<% end %>
