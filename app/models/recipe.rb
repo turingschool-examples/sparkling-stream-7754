@@ -6,4 +6,8 @@ class Recipe < ApplicationRecord
    def ingredient_names
       ingredients.pluck(:name)
    end
+
+   def total_cost
+      ingredients.sum(:cost)
+   end
 end

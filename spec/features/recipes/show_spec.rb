@@ -25,6 +25,6 @@ RSpec.describe Recipe, type: :feature do
   (e.g. Total Cost: 22)" do 
     visit "/recipes/#{@recipe.id}"
 
-    expect(page).to have_content(@recipe.name)
+    expect(page).to have_content("Total Cost: 6")
   end
 end
