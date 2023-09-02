@@ -6,6 +6,7 @@ RSpec.describe Recipe, type: :feature do
     @ingredient_1 = @recipe.ingredients.create(name: "Salt", cost: 4)
     @ingredient_2 = @recipe.ingredients.create(name: "Ground beef", cost: 2)
   end
+  
   it "As a visitor,
   When I visit '/recipes/:id',
   Then I see the recipe's name, complexity and genre,

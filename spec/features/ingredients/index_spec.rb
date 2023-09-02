@@ -15,9 +15,4 @@ RSpec.describe Ingredient, type: :feature do
     expect(page).to have_content("Ground Beef: 2")
     expect(page).to have_content("Salt: 4")
   end
-  it "As a visitor,
-  When I visit '/ingredients',
-  Then I see that the list of ingredients is sorted alphabetically by name" do 
-
-  end
 end
