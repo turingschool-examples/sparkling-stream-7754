@@ -21,7 +21,6 @@ RSpec.describe "ingredient index" do
 
     visit "/ingredients"
 
-    save_and_open_page
     expect("apple").to appear_before("bread")
     expect("bread").to appear_before("clove")
   end
