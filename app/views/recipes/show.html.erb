@@ -2,6 +2,8 @@
 <h3>Complexity: <%= @recipe.complexity %></h3>
 <h3>For: <%= @recipe.genre %></h3>
 <% @ingredients.each do |ingredient| %>
-  <p>an <%= ingredient.name %>
+  <p>a/an <%= ingredient.name %>
    costs: <%= ingredient.cost %></P>
- <% end %>
+ <% end %></br></br>
+
+ Total Cost <%= @total_cost %>
