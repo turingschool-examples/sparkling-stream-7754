@@ -6,4 +6,12 @@
    costs: <%= ingredient.cost %></P>
  <% end %></br></br>
 
+ <%= form_with url: "/recipe_ingredients", method: :post, data: { turbo: false} do |f| %>
+  <%= f.label :name, "Add ingredient" %>
+  <%= f.text_field :name %></br></br>
+  <%= f.hidden_field :ingrediant_id, :value=> @recipe.id %>
+
+  <%= f.submit "Add" %>
+<% end %>
+
  Total Cost <%= @total_cost %>
