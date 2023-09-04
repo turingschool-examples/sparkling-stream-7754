@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
     ingredient_1 = Ingredient.create!(name: "Pasta", cost: 2)
     ingredient_2 = Ingredient.create!(name: "Pasta Sauce", cost: 4)
+    ingredient_3 = Ingredient.create(name: "Mushrooms", cost: 3)
+
 
     recipe_1 = Recipe.create(name: "Spaghetti", complexity: 2, genre: "Italian")
     RecipeIngredient.create(recipe: recipe_1, ingredient: ingredient_1)
