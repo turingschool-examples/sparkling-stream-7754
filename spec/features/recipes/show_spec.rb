@@ -17,4 +17,16 @@ RSpec.describe "the recipe show page" do
     expect(page).to have_content(ingredient_1.name)
     expect(page).to have_content(ingredient_2.name)
   end
+
+  it "shows the cost of all ingredients in a recipe" do
+    ingredient_1 = Ingredient.create(name: "Pasta", cost: 2)
+    ingredient_2 = Ingredient.create(name: "Pasta Sauce", cost: 4)
+    recipe_1 = Recipe.create(name: "Spaghetti", complexity: 2, genre: "Italian")
+    RecipeIngredient.create(recipe: recipe_1, ingredient: ingredient_1)
+    RecipeIngredient.create(recipe: recipe_1, ingredient: ingredient_2)
+    
+    visit "/recipes/#{recipe_1.id}"
+
+    expect(page).to have_content("Total Recipe Cost: 6")
+  end
 end
