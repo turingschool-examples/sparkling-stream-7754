@@ -15,4 +15,5 @@ RSpec.describe 'Ingredients index page' do
         expect(page).to have_content(ingredient_3.name)
         expect(page).to have_content(ingredient_3.cost)
     end
+
 end

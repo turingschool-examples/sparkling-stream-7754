@@ -10,5 +10,10 @@ RSpec.describe "Recipes show page" do
         visit "/recipes/#{cookies.id}"
 
         expect(page).to have_content(cookies.name)
+        expect(page).to have_content(cookies.complexity)
+        expect(page).to have_content(cookies.genre)
+        expect(page).to have_content(ingredient_1.name)
+        expect(page).to have_content(ingredient_2.name)
+        expect(page).to have_content(ingredient_3.name)
     end
 end
