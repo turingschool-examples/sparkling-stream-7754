@@ -43,4 +43,40 @@ RSpec.describe "Recipes Show",type: :feature do
       end
     end
   end
+
+  describe "as a visitor" do
+    describe "when I visit '/recipes/:id/" do
+      it "I see the total cost of all of the ingredients in the recipe" do
+        recipe_1 = Recipe.create!(
+          name: "Mac and Cheese",
+          complexity: "Easy",
+          genre: "Comfort"
+        )
+
+        cheese = recipe_1.ingredients.create!(
+          name: "Cheese",
+          cost: "2"
+        )
+
+        noodles = recipe_1.ingredients.create!(
+          name: "Noodles",
+          cost: "6"
+        )
+
+        butter = recipe_1.ingredients.create!(
+          name: "Butter",
+          cost: "4"
+        )
+
+        milk = recipe_1.ingredients.create!(
+          name: "Milk",
+          cost: "5"
+        )
+
+        visit "/recipes/#{recipe_1.id}"
+
+        expect(page).to have_content("Total Cost: 17")
+      end
+    end
+  end
 end
