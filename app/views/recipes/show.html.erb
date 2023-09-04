@@ -1,7 +1,14 @@
 <h2><%= @recipe.name =%></h2>
-  <p>Complexity: <%= @recipe.complexity %></p>
-  <p>Genre: <%= @recipe.genre %></p>
-  <p>Ingredients: <% @recipe.ingredients.each do |ingredient| %>
-      <li><%= ingredient.name %></li>
+<p>Complexity: <%= @recipe.complexity %></p>
+<p>Genre: <%= @recipe.genre %></p>
+<p>Ingredients: <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
     <% end %>
 <p>Total Cost: <%= @recipe.total_cost %></p>
+
+<h1>Add Ingredient:</h1>
+<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, data: {turbo: false} do |f| %>
+  <%= f.label :ingredient_id, 'Ingredient ID:' %>
+  <%= f.text_field :ingredient_id %>
+  <%= f.submit "Add Ingredient" %>
+<% end %>

@@ -15,7 +15,7 @@ RSpec.describe Recipe, type: :model do
 
   describe "instance methods" do
     it "calculates total cost" do
-      recipe = Recipe.create!(name: 'Omlettes', complexity: 1, genre: 'Breakfast')
+      recipe = Recipe.create!(name: 'Omlette', complexity: 1, genre: 'Breakfast')
       cheese = Ingredient.create!(name: 'Cheese', cost: 1)
       eggs = Ingredient.create!(name: 'Eggs', cost: 2)
       bacon = Ingredient.create!(name: 'Bacon', cost: 3)
