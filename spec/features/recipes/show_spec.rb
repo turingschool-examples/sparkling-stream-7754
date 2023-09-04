@@ -54,6 +54,5 @@ RSpec.feature 'recipes show page' do
       expect(current_path).to eq("/recipes/#{recipe.id}")
       expect(page).to have_content(cheese.name), count: 2
     end
-
   end
 end

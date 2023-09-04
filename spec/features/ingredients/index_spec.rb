@@ -16,6 +16,7 @@ RSpec.feature 'ingredients index page' do
       expect(page).to have_content(bacon.name)
       expect(page).to have_content(bacon.cost)
     end
+    
     scenario 'EXT1 see a list of all ingredients sorted alphabetically' do 
       cheese = Ingredient.create!(name: 'Cheese', cost: 1)
       bacon = Ingredient.create!(name: 'Bacon', cost: 3)
