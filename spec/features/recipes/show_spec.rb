@@ -3,11 +3,9 @@ require "rails_helper"
 RSpec.describe "recipe show" do
   before :each do
     @bolognese_recipe = Recipe.create!(name: "Bolognese", complexity: 3, genre: "Italian")
-
     @beef = Ingredient.create!(name: "Beef", cost: 4)
     @pasta = Ingredient.create!(name: "Pasta", cost: 1)
     @mushrooms = Ingredient.create!(name: "Pasta", cost: 1)
-    
     @recipe_ingredients_1 = RecipeIngredient.create!(recipe_id: "#{@bolognese_recipe.id}", ingredient_id:"#{@beef.id}")
     @recipe_ingredients_1 = RecipeIngredient.create!(recipe_id: "#{@bolognese_recipe.id}", ingredient_id:"#{@pasta.id}")
   end
