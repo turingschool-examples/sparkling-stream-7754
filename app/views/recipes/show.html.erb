@@ -3,6 +3,14 @@
 <p>Complexity: <%= @recipe.complexity %></p>
 <p>Genre: <%= @recipe.genre %></p>
 
+<p>Add Ingredient</p>
+<%= form_with url: "/recipes", method: :post, data: { turbo: false } do |form| %>
+  <%= form.hidden_field :recipe_id, value: "#{@recipe.id}" %>
+  <%= form.label :ingredient_id, "Ingredient Id:" %>
+  <%= form.number_field :ingredient_id %>
+  <%= form.submit "Submit" %>
+<% end %>
+
 <p>Ingredients:</p>
 <% @recipe.ingredients.each do |ingredient| %>
   <p><%= ingredient.name %></p>

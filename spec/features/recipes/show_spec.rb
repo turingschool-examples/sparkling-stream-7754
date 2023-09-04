@@ -79,4 +79,38 @@ RSpec.describe "Recipes Show",type: :feature do
       end
     end
   end
+
+  describe "as a visitor" do
+    describe "when I visit '/recipes/:id'" do
+      describe "I see a form to add an ingredient to this recipe" do
+        describe "When I fill in a field with an existing ingredient's ID, and I click submit" do
+          it "I am redirected to the recipe's show page, and I see the new ingredient listed for this recipe" do
+            recipe_1 = Recipe.create!(
+              name: "Mac and Cheese",
+              complexity: "Easy",
+              genre: "Comfort"
+            )
+    
+            cheese = Ingredient.create!(
+              name: "Cheese",
+              cost: "2"
+            )
+
+            visit "/recipes/#{recipe_1.id}"
+
+            expect(page).to have_content("Add Ingredient")
+            expect(page).to have_content("Ingredient Id:")
+
+            fill_in "ingredient_id", with: "#{cheese.id}"
+
+            click_button("Submit")
+
+            expect(current_path).to eq("/recipes/#{recipe_1.id}")
+
+            expect(page).to have_content("#{cheese.name}")
+          end
+        end
+      end
+    end
+  end
 end
