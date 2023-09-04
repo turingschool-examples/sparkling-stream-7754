@@ -8,3 +8,9 @@
 <% end %>
 
 <h1>Cost: <%= @cost %></h1>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :post, data: { turbo: false } do |form| %>
+  <%= form.label :ingredient_id %>
+  <%= form.text_field :ingredient_id %>
+  <%= form.submit "Submit" %>
+<% end %>
