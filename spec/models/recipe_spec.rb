@@ -12,4 +12,18 @@ RSpec.describe Recipe, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:ingredients).through(:recipe_ingredients)}
   end
+
+  describe "instance methods" do
+    it "calculates total cost" do
+      recipe = Recipe.create!(name: 'Pancakes', complexity: 1, genre: 'Breakfast')
+      flour = Ingredient.create!(name: 'Flour', cost: 1)
+      eggs = Ingredient.create!(name: 'Eggs', cost: 2)
+      milk = Ingredient.create!(name: 'Milk', cost: 3)
+      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: flour.id)
+      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: eggs.id)
+      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: milk.id)
+
+      expect(recipe.total_cost).to eq(6)
+    end
+  end
 end
