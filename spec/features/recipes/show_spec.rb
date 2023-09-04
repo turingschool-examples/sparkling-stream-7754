@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "recipes show page" do
+RSpec.describe "recipes show page", type: :feature do
   describe "As a visitor" do
     describe "when I visit /recipes/:id" do
       it "Then I see the recipe's name complexity and genre, 
