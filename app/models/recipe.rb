@@ -6,4 +6,8 @@ class Recipe < ApplicationRecord
    def ingredient_names
       Recipe.joins(:ingredients).where(id: self.id).pluck("ingredients.name")
    end
+
+   def ingredients_cost
+      Recipe.joins(:ingredients).where(id: self.id).sum("ingredients.cost")
+   end
 end

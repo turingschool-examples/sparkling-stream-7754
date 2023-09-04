@@ -26,5 +26,9 @@ RSpec.describe Recipe, type: :model do
     it "#ingredient_names" do
       expect(@bolognese_recipe.ingredient_names).to eq(["Beef", "Pasta"])
     end
+
+    it "#ingredients_cost" do
+      expect(@bolognese_recipe.ingredients_cost).to eq(5)
+    end
   end
 end
