@@ -12,4 +12,15 @@ RSpec.describe "the ingredients index" do
     expect(page).to have_content(ingredient_2.name)
     expect(page).to have_content(ingredient_2.cost)
   end
+
+  it "shows a list of ingredients sorted alphabetically" do
+    ingredient_2 = Ingredient.create(name: "Pasta Sauce", cost: 4)
+    ingredient_1 = Ingredient.create(name: "Pasta", cost: 2)
+    ingredient_3 = Ingredient.create(name: "Apple", cost: 2)
+    
+    visit "/ingredients/"
+
+    expect(ingredient_3.name).to appear_before(ingredient_2.name)
+    expect(ingredient_1.name).to appear_before(ingredient_2.name)
+  end
 end

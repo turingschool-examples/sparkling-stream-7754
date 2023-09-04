@@ -12,6 +12,12 @@ RSpec.describe Ingredient, type: :model do
       it { should have_many(:recipes).through(:recipe_ingredients) }
    end
 
+   describe "#sort_alphabetical" do
+      it "sorts the ingredients alphabetically" do
+         ingredient_2 = Ingredient.create(name: "Pasta Sauce", cost: 4)
+         ingredient_1 = Ingredient.create(name: "Pasta", cost: 2)
 
-
+         expect(Ingredient.sort_alphabetical).to eq([ingredient_1, ingredient_2])
+      end
+   end
 end
