@@ -12,4 +12,13 @@ RSpec.describe Ingredient, type: :model do
       it { should have_many(:recipes).through(:recipe_ingredients) }
    end
 
+   describe "#ingredients_sorted" do
+    it "returns list of ingredients sorted by name" do
+      onion = Ingredient.create!(name: "Onion", cost: 1)
+      tomato = Ingredient.create!(name: "Tomato", cost: 1)
+      pepper = Ingredient.create!(name: "Bell Pepper", cost:1)
+
+      expect(Ingredient.ingredients_sorted).to eq([pepper, onion, tomato])
+    end
+   end
 end
