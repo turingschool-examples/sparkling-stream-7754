@@ -9,12 +9,12 @@ RSpec.describe "recipes show page" do
         tomato = Ingredient.create!(name: "Tomato", cost: 1)
         egg = Ingredient.create!(name: "Egg", cost: 2)
         shakshuka = Recipe.create!(name: "Shakshuka", complexity: 2, genre: "Breakfast")
-        RecipeIngredient.create(recipe_id: shakshuka, ingredient_id: tomato)
-        RecipeIngredient.create(recipe_id: shakshuka, ingredient_id: onion)
-        RecipeIngredient.create(recipe_id: shakshuka, ingredient_id: egg)
+        RecipeIngredient.create!(recipe_id: shakshuka.id, ingredient_id: tomato.id)
+        RecipeIngredient.create!(recipe_id: shakshuka.id, ingredient_id: onion.id)
+        RecipeIngredient.create!(recipe_id: shakshuka.id, ingredient_id: egg.id)
 
         visit "/recipes/#{shakshuka.id}"
-
+        save_and_open_page
         expect(page).to have_content(shakshuka.name)
         expect(page).to have_content(shakshuka.complexity)
         expect(page).to have_content(shakshuka.genre)
