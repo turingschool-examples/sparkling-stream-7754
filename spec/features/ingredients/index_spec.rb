@@ -27,4 +27,30 @@ RSpec.describe "Ingredients Index",type: :feature do
       end
     end
   end
+
+  describe "as a visitor" do
+    describe "when I visit '/ingredients'" do
+      it "I see that the list of ingredients is sorted alphabetically by name" do
+        pepper = Ingredient.create!(
+          name: "Pepper",
+          cost: 3
+        )
+
+        salt = Ingredient.create!(
+          name: "Salt",
+          cost: 4
+        )
+
+        ground_beef = Ingredient.create!(
+          name: "Ground Beef",
+          cost: 2
+        )
+
+        visit "/ingredients"
+
+        expect("Ground Beef: 2").to appear_before("Pepper: 3")
+        expect("Pepper: 3").to appear_before("Salt: 4")
+      end
+    end
+  end
 end
