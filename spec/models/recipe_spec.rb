@@ -15,13 +15,13 @@ RSpec.describe Recipe, type: :model do
 
   describe "instance methods" do
     it "calculates total cost" do
-      recipe = Recipe.create!(name: 'Pancakes', complexity: 1, genre: 'Breakfast')
-      flour = Ingredient.create!(name: 'Flour', cost: 1)
+      recipe = Recipe.create!(name: 'Omlettes', complexity: 1, genre: 'Breakfast')
+      cheese = Ingredient.create!(name: 'Cheese', cost: 1)
       eggs = Ingredient.create!(name: 'Eggs', cost: 2)
-      milk = Ingredient.create!(name: 'Milk', cost: 3)
-      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: flour.id)
+      bacon = Ingredient.create!(name: 'Bacon', cost: 3)
+      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: cheese.id)
       RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: eggs.id)
-      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: milk.id)
+      RecipeIngredient.create!(recipe_id: recipe.id, ingredient_id: bacon.id)
 
       expect(recipe.total_cost).to eq(6)
     end
