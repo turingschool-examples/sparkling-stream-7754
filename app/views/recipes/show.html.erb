@@ -11,3 +11,11 @@
 <%  end  %>
 
 <h3>Total Cost: <%= @cost %><h3>
+
+<h3>Add ingredient to recipe:</h3>
+<%# <%= form_with url: "/recipes/#{@recipe.id}", method: :post, local: true, data: {turbo: false} do |f|  %> 
+<%= form_with url: "/recipes/#{@recipe.id}", method: :post, local: true, data: {turbo: false} do |f|  %>
+  <%= f.label :ingredient_id, "ingredient id:" %>
+  <%= f.number_field :ingredient_id %>
+  <%= f.submit "Add ingredient" %>
+<%end %>
