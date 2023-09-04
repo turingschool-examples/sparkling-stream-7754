@@ -6,4 +6,8 @@ class Recipe < ApplicationRecord
   def find_ingredients
     self.ingredients
   end
+
+  def find_cost
+    self.ingredients.sum('cost')
+  end
 end
