@@ -1,12 +1,10 @@
-<h1>All Ingredients</h1>
+<h1>All Ingredients and Costs</h1>
 
 
 <% @ingredients.each do |ingredient| %>
   <ul>
-  <li><%= ingredient.name %></li>
-    <ul>
-      <li>cost: <%= ingredient.cost %></li>
-    </ul>
+  <li><%= ingredient.name %>: <%= ingredient.cost %> </li>
+
   </ul>
 
 <% end %>

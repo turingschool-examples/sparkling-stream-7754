@@ -27,7 +27,7 @@ RSpec.describe "the recipe show page" do
     
     visit "/recipes/#{recipe_1.id}"
 
-    expect(page).to have_content("Total Recipe Cost: 6")
+    expect(page).to have_content("Total Cost: 6")
   end
 
   it "I can add an ingredient to recipe list using id number" do
@@ -46,6 +46,6 @@ RSpec.describe "the recipe show page" do
     expect(page).to have_content(ingredient_1.name)
     expect(page).to have_content(ingredient_2.name)  
     expect(page).to have_content(ingredient_3.name)  
-    expect(page).to have_content("Total Recipe Cost: 9")
+    expect(page).to have_content("Total Cost: 9")
   end
 end

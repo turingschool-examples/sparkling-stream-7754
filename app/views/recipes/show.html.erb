@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-<p>Total Recipe Cost: <%= @cost %></p>
+<p>Total Cost: <%= @cost %></p>
 
 <h3>Add an Ingredient by inputting Ingredient ID: </h3>
 <%= form_with url: "/recipes/#{@recipe.id}", method: :post, local: true do |f| %>
