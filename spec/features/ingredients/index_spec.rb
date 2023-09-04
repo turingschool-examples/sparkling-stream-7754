@@ -22,5 +22,13 @@ RSpec.describe "ingredients index" do
       expect(page).to have_content(@pasta.name)
       expect(page).to have_content(@pasta.cost)
     end
+
+    it "displays ingredients in alphabetical order" do
+      visit "/ingredients"
+
+      expect(@beef.name).to appear_before(@chicken.name)
+      expect(@chicken.name).to appear_before(@pasta.name) 
+      expect(@pasta.name).to appear_before(@tortillas.name)
+    end
   end
 end
