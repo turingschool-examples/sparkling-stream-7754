@@ -1,0 +1,5 @@
+<h1>Ingredients Index</h1>
+
+<% @ingredients.each do |ingredient| %>
+    <h3><%= ingredient.name %>: <%= ingredient.cost %></h3>
+<% end %>
