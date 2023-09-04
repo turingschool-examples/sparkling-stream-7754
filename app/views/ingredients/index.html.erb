@@ -1,0 +1,19 @@
+<!- create table of ingredient with cost ->
+
+<h1>Ingredients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+    </tr>
+  <tbody>
+    <% @ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.name %></td>
+        <td><%= ingredient.cost %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
