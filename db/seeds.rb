@@ -14,6 +14,18 @@
 @penne = Ingredient.create!(name: 'Penne', cost: 2)
 @tomato = Ingredient.create!(name: 'Tomato', cost: 3)
 @cheese = Ingredient.create!(name: 'Cheese', cost: 4)
-@buns = Ingredient.create!(name: 'Buns', cost: 2)
+@bun = Ingredient.create!(name: 'Bun', cost: 2)
 @rice = Ingredient.create!(name: 'Rice', cost: 3)
 @fish = Ingredient.create!(name: 'Fish', cost: 6)
+
+RecipeIngredient.create!(recipe: @pasta, ingredient: @ground_beef)
+RecipeIngredient.create!(recipe: @pasta, ingredient: @penne)
+RecipeIngredient.create!(recipe: @pasta, ingredient: @tomato)
+  
+RecipeIngredient.create!(recipe: @burger, ingredient: @ground_beef)
+RecipeIngredient.create!(recipe: @burger, ingredient:  @cheese)
+RecipeIngredient.create!(recipe: @burger, ingredient: @tomato)
+
+RecipeIngredient.create!(recipe: @sushi, ingredient: @rice)
+RecipeIngredient.create!(recipe: @sushi, ingredient: @fish)
+
