@@ -1,0 +1,10 @@
+<h1>Ingredients</h1>
+
+<table>
+  <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= ingredient.name %>:</td>
+      <td><%= ingredient.cost %></td>
+    </tr>
+  <% end %>
+</table>
