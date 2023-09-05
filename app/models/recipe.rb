@@ -3,4 +3,14 @@ class Recipe < ApplicationRecord
 
    has_many :recipe_ingredients
    has_many :ingredients, through: :recipe_ingredients
+
+   def all_ingredients
+      #there may be a better way to do this with AR but considering the circumstances this will do for now
+      list = []
+      self.ingredients.each do |ingredient|
+         list << ingredient.name
+      end
+
+      list.join(", ")
+   end
 end

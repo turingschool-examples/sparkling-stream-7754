@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe "As a visitor when I visit '/recipes/:id" do
   before :each do
     @bec = Recipe.create!(name: "Bacon, Egg, and Cheese", complexity: 2, genre: "Breakfast")
-    @bagel = @bec.ingredient.create!(name: "Everything Bagel", cost: 2)
-    @egg = @bec.ingredient.create!(name: "Egg (not microwaved)", cost: 1)
-    @bacon = @bec.ingredient.create!(name: "Thick-Cut Bacon", cost: 4)
-    @cheese = @bec.ingredient.create!(name: "Estate Gouda", cost: 3)
+    @bagel = @bec.ingredients.create!(name: "Everything Bagel", cost: 2)
+    @egg = @bec.ingredients.create!(name: "Egg (not microwaved)", cost: 1)
+    @bacon = @bec.ingredients.create!(name: "Thick-Cut Bacon", cost: 4)
+    @cheese = @bec.ingredients.create!(name: "Estate Gouda", cost: 3)
   end
 
   it "I see the recipe's name, complexity and genre, and a list of the ingredients" do
