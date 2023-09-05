@@ -17,6 +17,5 @@ RSpec.describe 'ingredients index', type: :feature do
     expect(page).to have_content('Fish: $6')
     expect(page.body.index('Bun')).to be < page.body.index('Cheese')
     expect(page.body.index('Ground Beef')).to be < page.body.index('Rice')
-
   end
 end
