@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+Recipe.destroy_all
+Ingredient.destroy_all
+RecipeIngredient.destroy_all
 
 
 # recipe 1 should use 1,2,3,4 and recipe 2 should use 1,2,5
