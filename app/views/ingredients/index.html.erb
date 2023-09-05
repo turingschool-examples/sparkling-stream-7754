@@ -1,0 +1,6 @@
+<% @ingredients.each do |ingredient| %>
+  <section id="ingredient-<%= ingredient.id %>">
+    <h1><%= ingredient.name %></h1>
+    <p><%= ingredient.cost %></p>
+  </section>
+<% end %>
