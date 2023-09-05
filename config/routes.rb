@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   get "/ingredients", to: "ingredients#index"
 
-  # get "/recipes/", to: "recipes#show"
-  get "/recipes/:id", to: "recipes#show"
+  get "/recipes/", to: "recipes#show"
+  # get "/recipes/:id", to: "recipes#show"
 end
