@@ -22,8 +22,8 @@ RSpec.describe "Recipes show page" do
       expect(page).to have_content("Grandpas Beans")
       expect(page).to have_content(3)
       expect(page).to have_content("Rustic")
-      expect(page).to have_content("Onion")
-      expect(page).to have_content("Beans")
+      expect(page).to have_content(@ingredient1.name)
+      expect(page).to have_content(@ingredient3.name)
     end
   end
 end
