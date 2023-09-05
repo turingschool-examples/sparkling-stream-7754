@@ -1,0 +1,8 @@
+<h1><%= @recipe.name %></h1>
+<p>Recipe: <%= @recipe.name %></p>
+<p>Recipe: <%= @recipe.complexity %></p>
+<p>Recipe: <%= @recipe.genre %></p>
+
+<h1><%= "List of Ingredients for recipe" %></h1>
+<p><%= @recipe.ingredients.first.name %></p>
+<p><%= @recipe.ingredients.last.name %></p>
