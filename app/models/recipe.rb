@@ -13,4 +13,12 @@ class Recipe < ApplicationRecord
 
       list.join(", ")
    end
+   
+   def total_cost
+      cost = 0
+      self.ingredients.each do |ingredient|
+         cost += ingredient.cost
+      end
+      cost
+   end
 end

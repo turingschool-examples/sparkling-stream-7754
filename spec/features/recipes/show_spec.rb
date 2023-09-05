@@ -17,4 +17,10 @@ RSpec.describe "As a visitor when I visit '/recipes/:id" do
     expect(page).to have_content("Genre: #{@bec.genre}")
     expect(page).to have_content("Ingredients: #{@bagel.name}, #{@egg.name}, #{@bacon.name}, #{@cheese.name}")
   end
+
+  it "I see the total cost of all ingredients in the recipe" do
+    visit "/recipes/#{@bec.id}"
+
+    expect(page).to have_content("Total Cost: #{@bec.total_cost}")
+  end
 end
