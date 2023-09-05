@@ -3,4 +3,8 @@ class Recipe < ApplicationRecord
    has_many :ingredients, through: :recipe_ingredients
    
    validates_presence_of :name, :complexity, :genre
+
+   def ingredient_cost
+      self.ingredients.sum(:cost)
+   end
 end

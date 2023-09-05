@@ -21,6 +21,7 @@ RSpec.describe "recipe show page" do
     ingredient_2 = recipe.ingredients.create(name: "Salt", cost: 4)
 
     visit "/recipes/#{recipe.id}"
+    save_and_open_page
 
     expect(page).to have_content(6)
 
