@@ -3,19 +3,19 @@ require "rails_helper"
 
 RSpec.describe "constellations index page", type: :feature do
   before :each do
-    @ingred_1 = Ingredient.create!(
+    @cheese = Ingredient.create!(
       name: "Cheese",
       cost: 4
     )
-    @ingred_2 = Ingredient.create!(
+    @milk = Ingredient.create!(
       name: "Milk",
       cost: 3
     )
-    @ingred_3 = Ingredient.create!(
+    @eggs = Ingredient.create!(
       name: "Eggs",
       cost: 7
     )
-    @ingred_4 = Ingredient.create!(
+    @mushrooms = Ingredient.create!(
       name: "Mushrooms",
       cost: 5
     )
@@ -33,14 +33,21 @@ RSpec.describe "constellations index page", type: :feature do
     it "displays list of all the ingredients including their name and cost" do
       visit "/ingredients"
 
-      expect(page).to have_content(@ingred_1.name)
-      expect(page).to have_content(@ingred_1.cost)
-      expect(page).to have_content(@ingred_2.name)
-      expect(page).to have_content(@ingred_2.cost)
-      expect(page).to have_content(@ingred_3.name)
-      expect(page).to have_content(@ingred_3.cost)
-      expect(page).to have_content(@ingred_4.name)
-      expect(page).to have_content(@ingred_4.cost)
+      expect(page).to have_content(@cheese.name)
+      expect(page).to have_content(@cheese.cost)
+      expect(page).to have_content(@milk.name)
+      expect(page).to have_content(@milk.cost)
+      expect(page).to have_content(@eggs.name)
+      expect(page).to have_content(@eggs.cost)
+      expect(page).to have_content(@mushrooms.name)
+      expect(page).to have_content(@mushrooms.cost)
+    end
+
+    it "displays the ingredients in alphabetical order" do
+      visit '/ingredients'
+
+      expect(@cheese.name).to appear_before(@eggs.name)
+      expect(@milk.name).to appear_before(@mushrooms.name)
     end
   end
 end
