@@ -39,12 +39,11 @@ RSpec.describe 'Show page', type: :feature do
 
   describe 'As a visitor' do
     describe 'When I visit the recipes show page' do
-      xit 'I also see the total cost of all the ingredients in the recipe' do
-        total_cost = @recipe_1.ingredients.sum(:cost)
+      it 'I also see the total cost of all the ingredients in the recipe' do
 
         visit "/recipes/#{@recipe_1.id}"
         
-        expect(page).to have_text("Total Cost: $#{total_cost}", type: :visible)
+        expect(page).to have_text(@recipe_1.total_cost)
       end
     end
   end
