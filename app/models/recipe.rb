@@ -4,7 +4,7 @@ class Recipe < ApplicationRecord
    has_many :ingredients, through: :recipe_ingredients
 
    def get_ingredient_names
-      ingredients.pluck(:name)
+      ingredients.order(:name).pluck(:name)
    end
 
    def recipe_cost

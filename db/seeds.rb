@@ -10,3 +10,5 @@ recipe_1 = Recipe.create!(name: "Oops, all Beef!", complexity: 1, genre: "Horrib
 recipe_2 = Recipe.create!(name: "Literally Potatoes", complexity: 2, genre: "Rustic")
 ingredient_1 = recipe_1.ingredients.create!(name: "Ground Beef", cost: 2)
 ingredient_2 = recipe_1.ingredients.create!(name: "Salt", cost: 4)
+ingredient_3 = recipe_1.ingredients.create!(name: "An Ingredient Starting with A", cost: 3)
+ingredient_4 = recipe_2.ingredients.create!(name: "Potato", cost: 1)

@@ -22,6 +22,15 @@ RSpec.describe Recipe, type: :model do
 
         expect(recipe_1.get_ingredient_names).to eq([ingredient_1.name, ingredient_2.name])
       end
+
+      it "sorts ingredients alphabetically by name" do
+        recipe_1 = Recipe.create!(name: "Oops, all Beef!", complexity: 1, genre: "Horrible")
+        ingredient_1 = recipe_1.ingredients.create!(name: "Ground Beef", cost: 2)
+        ingredient_2 = recipe_1.ingredients.create!(name: "Salt", cost: 4)
+        ingredient_3 = recipe_1.ingredients.create!(name: "An Ingredient Starting with A", cost: 3)
+
+        expect(recipe_1.get_ingredient_names).to eq([ingredient_3.name, ingredient_1.name, ingredient_2.name])
+      end
     end
 
     describe "#recipe_cost" do
