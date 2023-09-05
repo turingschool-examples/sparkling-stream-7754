@@ -1,5 +1,5 @@
 # Hells Kitchen
-
+ 
 This repository requires and has been tested on Ruby v3.1.1 and is based on Rails 7.0.4.
 
 RSpec and Shoulda-Matchers have been installed and set up.
