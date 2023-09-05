@@ -29,5 +29,15 @@ RSpec.describe "Recipes Show" do
 
       expect(page).to have_content(@ingredient_3.name)
     end
+
+    it "I see the total cost of all of the ingredients in the recipe" do
+      visit "/recipes/#{@recipe_1.id}"
+
+      expect(page).to have_content("Total cost: #{@ingredient_1.cost + @ingredient_2.cost}")
+
+      visit "/recipes/#{@recipe_2.id}"
+
+      expect(page).to have_content("Total cost: #{@ingredient_3.cost}")
+    end
   end
 end
