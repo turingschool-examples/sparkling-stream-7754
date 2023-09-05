@@ -23,4 +23,19 @@ RSpec.describe "As a visitor when I visit '/recipes/:id" do
 
     expect(page).to have_content("Total Cost: #{@bec.total_cost}")
   end
+
+  it "I see a form to add a new ingredient" do
+    visit "/recipes/#{@bec.id}"
+
+    expect(page).to have_button("Add Ingredient")
+
+    fill_in "Name", with: "Hot Sauce"
+    fill_in "Cost", with: 1
+
+    click_button("Add Ingredient")
+
+    expect(current_path).to eq("/recipes/#{@bec.id}")
+
+    expect(page).to have_content(("Ingredients: #{@bagel.name}, #{@egg.name}, #{@bacon.name}, #{@cheese.name}, Hot Sauce"))
+  end
 end

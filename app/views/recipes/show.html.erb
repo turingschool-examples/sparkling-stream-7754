@@ -4,3 +4,11 @@
 <%= "Genre: #{@recipe.genre}" %>
 <%= "Ingredients: #{@recipe.all_ingredients}" %>
 <%= "Total Cost: #{@recipe.total_cost}" %>
+
+<%= form_with url: "/recipes/#{@recipe.id}/recipe_ingredients", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :cost %>
+  <%= form.text_field :cost %>
+  <%= form.submit "Add Ingredient"%>
+<% end %>
