@@ -43,7 +43,7 @@ RSpec.describe 'Show page', type: :feature do
 
         visit "/recipes/#{@recipe_1.id}"
         
-        expect(page).to have_text(@recipe_1.total_cost)
+        expect(page).to have_content(@recipe_1.total_cost)
       end
     end
   end
