@@ -1,0 +1,19 @@
+<h1> User Story 2 + 3: Recipe Show Page </h1>
+
+<strong>Recipe: </strong><%= @recipe.name %>
+<ul>
+  <li>Complexity: <%= @recipe.complexity %></li>
+  <li>Genre: <%= @recipe.genre %></li>
+</ul>
+
+<strong>Ingredients:</strong>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
+
+<strong>Total Cost: </strong>
+<ul>
+  <li>$<%= @recipe.ingredients.sum(:cost) %></li>
+</ul>
