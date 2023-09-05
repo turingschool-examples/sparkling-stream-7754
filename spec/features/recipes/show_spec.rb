@@ -1,7 +1,7 @@
 require "rails_helper"
 
 
-RSpec.describe "constellations index page", type: :feature do
+RSpec.describe "recipes show page", type: :feature do
   before :each do
     @cheese = Ingredient.create!( name: "Cheese",cost: 4 )
     @milk = Ingredient.create!( name: "Milk",cost: 3 )
@@ -35,7 +35,21 @@ RSpec.describe "constellations index page", type: :feature do
 
   describe "When I visit '/ingredients'" do
     it "displays list of all the ingredients including their name and cost" do
- 
+      visit "/recipes/#{@omelette.id}"
+
+      expect(page).to have_content(@omelette.name)
+      expect(page).to have_content(@omelette.complexity)
+      expect(page).to have_content(@omelette.genre)
+      expect(page).to have_content(@cheese.name)
+      expect(page).to have_content(@eggs.name)
+      expect(page).to have_content(@onion.name)
+    end
+
+    # ------   User Story 3 - Shows total cost of recipe
+    it "shows the total cost of the recipe" do
+      visit "/recipes/#{@omelette.id}"
+
+      expect(page).to have_content("Total Cost: 18")
     end
   end
 end
