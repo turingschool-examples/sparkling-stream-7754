@@ -15,7 +15,7 @@ RSpec.describe "constellations index page", type: :feature do
       name: "Eggs",
       cost: 7
     )
-    @ingred_3 = Ingredient.create!(
+    @ingred_4 = Ingredient.create!(
       name: "Mushrooms",
       cost: 5
     )
