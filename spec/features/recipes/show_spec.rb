@@ -15,4 +15,10 @@ RSpec.describe 'recipes show', type: :feature do
     expect(page).to have_content('Penne')
     expect(page).to have_content('Tomato')
   end
+
+  it 'provides the total cost of all of the ingredients in the recipe' do
+    visit "/recipes/#{@pasta.id}"
+
+    expect(page).to have_content('Total Cost: $10')
+  end
 end
