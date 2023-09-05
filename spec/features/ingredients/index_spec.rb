@@ -19,4 +19,18 @@ RSpec.describe "Ingredients Index Page" do
     expect(page).to have_content(@ingredient3.cost)
   end
 
+  it "can display an alphabetized list of all available ingredients and their cost" do 
+    visit "/ingredients"
+
+    expect(page).to have_content(@ingredient1.name)
+    expect(page).to have_content(@ingredient1.cost)
+    
+    expect(page).to have_content(@ingredient3.name)
+    expect(page).to have_content(@ingredient3.cost)
+
+    expect(page).to have_content(@ingredient2.name)
+    expect(page).to have_content(@ingredient2.cost)
+
+  end
+
 end
