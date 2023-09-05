@@ -8,3 +8,9 @@
 <% end %>
 </section><br>
 <h3>Total Cost: <%= @recipe.total_cost %></h3>
+<h4>Add an Ingredient</h4>
+<%= form_with url:"/recipes/#{@recipe.id}", method: :post, data: {turbo: false} do |form| %>
+  <%= form.label :add_ingredient, "Input Ingredient ID:" %><br>
+  <%= form.select :add_ingredient, options_for_select(@ingredient_ids) %>
+  <%= form.submit "Submit" %>
+<% end %>

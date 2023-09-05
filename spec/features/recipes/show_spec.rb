@@ -34,6 +34,20 @@ RSpec.describe "the recipe show page" do
 
         expect(page).to have_content("Total Cost: 4")
       end
+
+      it "I see a form to add an ingredient to the recipe, fill it in with an existing ingredient id, and return to the show page with new ingredient" do
+        visit "recipes/#{@recipe2.id}"
+
+        select "#{@ingredient3.id}", :from => "Input Ingredient ID:"
+        click_button "Submit"
+
+        expect(current_path).to eq("/recipes/#{@recipe2.id}")
+        
+        within("#ingredients") do
+          expect(page).to have_content(@ingredient1.name)
+          expect(page).to have_content(@ingredient3.name)
+        end
+      end
     end
   end
 end
