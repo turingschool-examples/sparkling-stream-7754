@@ -16,6 +16,11 @@
 @omelette = Recipe.create!( name: "Omelette", complexity: 3, genre: "Breakfast")
 @pizza = Recipe.create!( name: "Pizza", complexity: 5, genre: "Party")
 @Chilli = Recipe.create!( name: "Beef Chilli", complexity: 4, genre: "Tex-Mex")
-@crab = Recipe.create!( name: "Crab Cakes", complexity: 5, genre: "Seafood")
+@crab_cakes = Recipe.create!( name: "Crab Cakes", complexity: 5, genre: "Seafood")
 @chowda = Recipe.create!( name: "Corn Chowder", complexity: 4, genre: "Soup")
 @welli = Recipe.create!( name: "Beef Wellingtion", complexity: 7, genre: "Main Dish")
+
+RecipeIngredient.create!(ingredient_id: @cheese.id, recipe_id: @omelette.id)
+RecipeIngredient.create!(ingredient_id: @eggs.id, recipe_id: @omelette.id)
+RecipeIngredient.create!(ingredient_id: @mushrooms.id, recipe_id: @omelette.id)
+RecipeIngredient.create!(ingredient_id: @onion.id, recipe_id: @omelette.id)
