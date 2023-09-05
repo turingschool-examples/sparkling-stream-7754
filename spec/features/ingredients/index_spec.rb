@@ -5,7 +5,7 @@ RSpec.describe 'ingredients index', type: :feature do
     load_test_data
   end
   
-  it 'provides a list of all the ingredients including their name and cost' do
+  it 'provides an alphabetical list of all the ingredients including their name and cost' do
     visit '/ingredients'
 
     expect(page).to have_content('Ground Beef: $5')
@@ -15,5 +15,8 @@ RSpec.describe 'ingredients index', type: :feature do
     expect(page).to have_content('Bun: $2')
     expect(page).to have_content('Rice: $3')
     expect(page).to have_content('Fish: $6')
+    expect(page.body.index('Bun')).to be < page.body.index('Cheese')
+    expect(page.body.index('Ground Beef')).to be < page.body.index('Rice')
+
   end
 end
