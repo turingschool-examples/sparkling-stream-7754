@@ -11,7 +11,10 @@ RSpec.describe "the ingredients index" do
 
     expect(page).to have_content(@ingredient_1.name)
     expect(page).to have_content(@ingredient_1.cost)
-    expect(page).to have_content(@ingredient_2.name)
-    expect(page).to have_content(@ingredient_2.cost)
+    # expect(page).to have_content(@ingredient_2.name)
+    # expect(page).to have_content(@ingredient_2.cost)
+    
+    
+    expect(page).to have_content("#{@ingredient_2.name}: #{@ingredient_2.cost}")
   end
 end

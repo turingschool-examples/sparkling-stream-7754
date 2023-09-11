@@ -4,6 +4,19 @@ RSpec.describe "recipes#show" do
   before(:each) do
     @recipe_1 = Recipe.create!(name: "Spaghetti", complexity: 3, genre: "Italian")
     @recipe_2 = Recipe.create!(name: "Burger", complexity: 1, genre: "American")
+
+    @ingredient_1 = Ingredient.create!(name: "Ground Beef", cost: 2)
+    @ingredient_2 = Ingredient.create!(name: "Salt", cost: 4)
+    @ingredient_3 = Ingredient.create!(name: "Noodles", cost: 1)
+    @ingredient_4 = Ingredient.create!(name: "Tomatoes", cost: 2)
+    @ingredient_5 = Ingredient.create!(name: "Burg Bun", cost: 1)
+
+    @spaghetti_1 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_1)
+    @spaghetti_2 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_2)
+    @spaghetti_3 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_3)
+    
+
+
   end
 
   describe "display recipe info" do
@@ -13,7 +26,14 @@ RSpec.describe "recipes#show" do
       expect(page).to have_content(@recipe_1.name)
       expect(page).to have_content(@recipe_1.complexity)
       expect(page).to have_content(@recipe_1.genre)
+    end
 
+    it "shows a list of the names of the ingredients for the recipe" do
+      visit "/recipes/#{@recipe_1.id}"
+
+      expect(page).to have_content(@ingredient_1.name)
+      expect(page).to have_content(@ingredient_2.name)
+      expect(page).to have_content(@ingredient_3.name)
 
     end
   end
