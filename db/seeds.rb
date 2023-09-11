@@ -16,5 +16,11 @@
 @ingredient_4 = Ingredient.create!(name: "Tomatoes", cost: 2)
 @ingredient_5 = Ingredient.create!(name: "Burg Bun", cost: 1)
 
+@spaghetti_1 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_1)
+@spaghetti_2 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_2)
+@spaghetti_3 = RecipeIngredient.create!(recipe: @recipe_1, ingredient: @ingredient_3)
+    
+
+
 
 
