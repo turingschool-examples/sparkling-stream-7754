@@ -6,4 +6,10 @@
    <li><%= ingredient.name %></li>
 <% end %>
 
-<h3>Total Cost:<%= @total_cost %></h3>
+<h3>Total Cost: <%= @recipes.total_cost %></h3>
+
+<%= form_with url: "/recipes/#{@recipes.id}/ingredients" do |f| %>
+  <%= f.label "Ingredient ID" %>
+  <%= f.text_field :ingredient_id %>
+  <%= f.submit "Add Ingredient" %>
+<% end %>

@@ -41,6 +41,18 @@ RSpec.describe "recipes#show" do
       expect(page).to have_content(@ingredient_3.name)
     end
 
+    it "has a form to add an existing ingredient ot the recipe" do
+      visit "/recipes/#{@recipe_1.id}"
+      
+      expect(page).to_not have_content(@ingredient_4.name)
+
+      fill_in :ingredient_id, with: @ingredient_4.id
+
+      click_button "Add Ingredient"
+
+      expect(current_path).to eq("/recipes/#{@recipe_1.id}")
+      expect(page).to have_content(@ingredient_4.name)
+    end
    
   end
 end

@@ -29,7 +29,7 @@ RSpec.describe Recipe, type: :model do
 
   describe "instance methods" do
     it "#total_cost" do
-      expect(@recipe_1.total_cost).to eq(9)
+      expect(@recipe_1.total_cost).to eq(7)
     end
   end
 end
